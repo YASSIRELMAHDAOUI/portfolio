@@ -7,15 +7,16 @@ const Project = () => {
       initial={{ opacity: 0, x: -40 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 1 }}
-      className="p-8 max-w-4xl mx-auto text-white my-25"
+      className="md:p-8 p-4 w-full md:max-w-5xl mx-auto text-white my-25"
+      id="project"
     >
       <h1 className="text-3xl font-bold mb-4 border-b border-pink-500 inline-block">
         Mes projets :
       </h1>
       <p className="text-lg leading-relaxed">
   Voici quelques-uns des projets que j’ai réalisés en tant que développeur full stack. J’ai conçu des applications web complètes en utilisant <strong className="text-pink-500">React.js</strong> pour le front-end, et <strong className="text-pink-500">Laravel</strong> pour le back-end. Parmi mes réalisations : une plateforme de gestion de location de voitures, un tableau de bord d’administration intuitif, et un blog interactif dédié à la scène rap marocaine. Chaque projet traduit ma passion pour un design soigné, une expérience utilisateur fluide, et un code bien structuré.  
-  <br /><br />
- <div className="flex gap-4 my-20">
+  
+ <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 ">
   {/* Carte 1 */}
   <div className="relative group w-80 h-70 rounded-xl overflow-hidden shadow-lg cursor-pointer bg-gray-700 hover:scale-105 transition-transform duration-500">
     <div className="absolute inset-0 bg-gray-800/60 backdrop-blur-md opacity-0 group-hover:opacity-100 transition duration-500 z-0"></div>

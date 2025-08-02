@@ -1,41 +1,72 @@
-import { motion } from "framer-motion";
+import React from "react";
+import Slider from "react-slick";
 import yassirImg from "../assets/photo.jpg";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaFacebookSquare, FaWhatsappSquare, FaReact, FaLaravel, FaJs, FaPhp } from "react-icons/fa";
+import { SiMysql } from "react-icons/si";
+import { motion } from "framer-motion";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Home = () => {
+  const settings = {
+    infinite: true,
+    speed: 5000,          // Durée du défilement (ms)
+    slidesToShow: 6,       // Nombre d’icônes visibles
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 0,      // Important pour défilement continu
+    cssEase: "linear",     // Pour un défilement fluide et constant
+    pauseOnHover: false,
+    arrows: false,
+    swipe: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  const icons = [<FaLaravel />,<SiMysql />, <FaReact />, <FaJs />, <FaPhp />];
+  const repeatedIcons = [...Array(10)].flatMap(() => icons);
+
   return (
     <>
       {/* Barre de technologies défilantes */}
-      <div className="overflow-hidden w-full py-8 bg-black">
-        <motion.div
-          animate={{ x: ["-100%", "100%"] }}
-          transition={{
-            repeat: Infinity,
-            duration: 20,
-            ease: "linear",
-          }}
-          className="flex gap-16 text-6xl text-pink-500 whitespace-nowrap"
-        >
-          {/* Répétition pour effet infini */}
-          {[...Array(10)].map((_, index) => (
-            <span key={index} className="flex gap-16">
-              <FaLaravel />
-              <FaReact />
-              <FaJs />
-              <FaPhp />
-            </span>
+      <div id="home" className="overflow-hidden w-full py-8 bg-black text-pink-500 text-6xl">
+        <Slider {...settings}>
+          {repeatedIcons.map((icon, index) => (
+            <div key={index} className="flex justify-center ">
+              {icon}
+            </div>
           ))}
-        </motion.div>
+        </Slider>
       </div>
 
-      {/* Titre principal */}
       <motion.div
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <h1 className="text-center text-5xl my-20 font-bold">
+        <h1 className="text-center text-3xl md:text-5xl my-20 font-bold">
           Développeur Web Full Stack <br />
           Bonjour, je suis{" "}
           <strong className="text-pink-500">Yassir Elmahdaoui</strong>, originaire du Maroc.
@@ -57,12 +88,11 @@ const Home = () => {
             className="w-full h-full object-cover rounded-3xl shadow-lg relative z-10 transition-transform duration-300 group-hover:scale-105"
           />
           <div className="absolute inset-0 rounded-3xl bg-pink-500 blur-2xl opacity-60 transition-opacity duration-300 z-0 mix-blend-screen"></div>
-
         </div>
 
         {/* Texte à propos */}
         <div>
-          <h2 className="text-3xl font-bold mb-4">À propos de moi</h2>
+          <h2 className="text-xl md:text-3xl font-bold mb-4">À propos de moi</h2>
           <p className="text-lg leading-relaxed max-w-xl">
             Je m’appelle Yassir El Mahdaoui, développeur full stack passionné par le
             développement web et les technologies modernes. Fort d’une solide expérience
@@ -74,7 +104,7 @@ const Home = () => {
           </p>
 
           {/* Réseaux sociaux */}
-          <div className="flex gap-6 mt-6 text-4xl text-pink-500">
+          <div className="flex gap-6 mt-6 text-4xl justify-center text-pink-500">
             <a
               className="hover:scale-110 transition-transform duration-300"
               href="https://www.instagram.com/le.enemy_/"

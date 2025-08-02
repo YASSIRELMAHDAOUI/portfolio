@@ -20,7 +20,7 @@ const Nav = () => {
           <li className="relative group">
             <a
               href="#home"
-              className="text-lg transition-transform duration-200 group-hover:scale-105 group-hover:text-pink-500"
+              className="text-sm md:text-lg transition-transform duration-200 group-hover:scale-105 group-hover:text-pink-500"
             >
               Home
               <span className="block h-[2px] bg-pink-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left mt-1"></span>
@@ -29,7 +29,7 @@ const Nav = () => {
           <li className="relative group">
             <a
               href="#project"
-              className="text-lg transition-transform duration-200 group-hover:scale-105 group-hover:text-pink-500"
+              className="text-sm md:text-lg transition-transform duration-200 group-hover:scale-105 group-hover:text-pink-500"
             >
               Project
               <span className="block h-[2px] bg-pink-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left mt-1"></span>
@@ -38,7 +38,7 @@ const Nav = () => {
           <li className="relative group">
             <a
               href="#contact"
-              className="text-lg transition-transform duration-200 group-hover:scale-105 group-hover:text-pink-500"
+              className="text-sm md:text-lg transition-transform duration-200 group-hover:scale-105 group-hover:text-pink-500"
             >
               Contact
               <span className="block h-[2px] bg-pink-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left mt-1"></span>

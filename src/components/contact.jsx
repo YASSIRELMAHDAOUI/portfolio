@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { AiFillStar, AiOutlineStar, AiFillPhone, AiOutlineMail, AiFillEnvironment } from "react-icons/ai";
 
 const Contact = () => {
   const [rating, setRating] = useState(0);
@@ -35,7 +35,6 @@ const Contact = () => {
     } else {
       setErrors({});
       console.log("Formulaire soumis :", formData, "Note :", rating);
-      // Ici tu peux envoyer le formulaire vers une API ou autre
       alert("Message envoyé avec succès !");
       setFormData({ nom: "", email: "", message: "" });
       setRating(0);
@@ -44,81 +43,110 @@ const Contact = () => {
 
   return (
     <motion.div
+      id="contact"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="max-w-md mx-auto p-6 bg-white rounded-xl shadow-md"
+      className="max-w-5xl mx-auto p-6"
     >
-      <h2 className="text-2xl font-semibold text-center text-gray-800 mb-3">
+      <h2 className="text-3xl font-semibold text-center mb-8 text-pink-500">
         Contactez-moi
       </h2>
 
-      <form className="space-y-4" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="nom"
-          placeholder="Votre nom"
-          value={formData.nom}
-          onChange={handleChange}
-          className={`w-full text-gray-800 p-2 border ${
-            errors.nom ? "border-red-500" : "border-gray-300"
-          } rounded focus:ring-2 focus:ring-pink-400`}
-        />
-        {errors.nom && <p className="text-red-500 text-sm">{errors.nom}</p>}
+      <div className="flex flex-col md:flex-row gap-10">
+        {/* Fiche de contact */}
+        <div className="flex-1 bg-gray-800 rounded-xl shadow-md p-8 text-white flex flex-col justify-center gap-6">
+          <h3 className="text-2xl font-bold mb-4">Mes coordonnées</h3>
+          <div className="flex items-center gap-4">
+            <AiFillPhone size={28} className="text-pink-500" />
+            <span>+212 6 01 57 43 51</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <AiOutlineMail size={28} className="text-pink-500" />
+            <span>yassirelmahdaoui1@gmail.com</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <AiFillEnvironment size={28} className="text-pink-500" />
+            <span>Marrakech, Maroc</span>
+          </div>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Votre email"
-          value={formData.email}
-          onChange={handleChange}
-          className={`w-full text-gray-800 p-2 border ${
-            errors.email ? "border-red-500" : "border-gray-300"
-          } rounded focus:ring-2 focus:ring-pink-400`}
-        />
-        {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
-
-        <textarea
-          name="message"
-          rows="4"
-          placeholder="Votre message"
-          value={formData.message}
-          onChange={handleChange}
-          className={`w-full text-gray-800 p-2 border ${
-            errors.message ? "border-red-500" : "border-gray-300"
-          } rounded focus:ring-2 focus:ring-pink-400`}
-        />
-        {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
-
-        <div className="flex items-center space-x-1 text-pink-500 justify-center">
-          {[1, 2, 3, 4, 5].map((star) => (
-            <button
-              key={star}
-              type="button"
-              onClick={() => setRating(star)}
-              onMouseEnter={() => setHover(star)}
-              onMouseLeave={() => setHover(0)}
-              aria-label={`Noter ${star} étoiles`}
-              className="focus:outline-none"
-            >
-              {star <= (hover || rating) ? (
-                <AiFillStar size={28} />
-              ) : (
-                <AiOutlineStar size={28} />
-              )}
-            </button>
-          ))}
+          <p className="mt-6 text-gray-400">
+            N’hésitez pas à me contacter via ce formulaire ou par téléphone/email.
+          </p>
         </div>
 
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          type="submit"
-          className="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-400 transition"
+        {/* Formulaire */}
+        <form
+          onSubmit={handleSubmit}
+          className="flex-1 bg-gray-800 rounded-xl shadow-md p-8 text-white space-y-6"
         >
-          Envoyer
-        </motion.button>
-      </form>
+          <input
+            type="text"
+            name="nom"
+            placeholder="Votre nom"
+            value={formData.nom}
+            onChange={handleChange}
+            className={`w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-pink-400 text-white bg-gray-700 ${
+              errors.nom ? "border-red-500" : "border-gray-600"
+            }`}
+          />
+          {errors.nom && <p className="text-red-500 text-sm">{errors.nom}</p>}
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Votre email"
+            value={formData.email}
+            onChange={handleChange}
+            className={`w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-pink-400 text-white bg-gray-700 ${
+              errors.email ? "border-red-500" : "border-gray-600"
+            }`}
+          />
+          {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+
+          <textarea
+            name="message"
+            rows="4"
+            placeholder="Votre message"
+            value={formData.message}
+            onChange={handleChange}
+            className={`w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-pink-400 text-white bg-gray-700 ${
+              errors.message ? "border-red-500" : "border-gray-600"
+            }`}
+          />
+          {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
+
+          {/* Étoiles de notation */}
+          <div className="flex items-center space-x-1 text-pink-500 justify-center">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <button
+                key={star}
+                type="button"
+                onClick={() => setRating(star)}
+                onMouseEnter={() => setHover(star)}
+                onMouseLeave={() => setHover(0)}
+                aria-label={`Noter ${star} étoiles`}
+                className="focus:outline-none"
+              >
+                {star <= (hover || rating) ? (
+                  <AiFillStar size={28} />
+                ) : (
+                  <AiOutlineStar size={28} />
+                )}
+              </button>
+            ))}
+          </div>
+
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            type="submit"
+            className="w-full bg-pink-500 text-white py-3 rounded hover:bg-pink-400 transition"
+          >
+            Envoyer
+          </motion.button>
+        </form>
+      </div>
     </motion.div>
   );
 };
