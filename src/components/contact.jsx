@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { AiFillStar, AiOutlineStar, AiFillPhone, AiOutlineMail, AiFillEnvironment } from "react-icons/ai";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [rating, setRating] = useState(0);
@@ -28,18 +29,41 @@ const Contact = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-    } else {
-      setErrors({});
-      console.log("Formulaire soumis :", formData, "Note :", rating);
-      alert("Message envoyé avec succès !");
-      setFormData({ nom: "", email: "", message: "" });
-      setRating(0);
-    }
-  };
+  e.preventDefault();
+  const validationErrors = validate();
+  if (Object.keys(validationErrors).length > 0) {
+    setErrors(validationErrors);
+  } else {
+    setErrors({});
+
+    const templateParams = {
+      nom: formData.nom,
+      email: formData.email,
+      message: formData.message,
+      rating: rating,
+    };
+
+    emailjs
+      .send(
+        "YASSIR",     // à remplacer
+        "template_84rk2mf",    // à remplacer
+        templateParams,
+        "44tvaNQXdL5a3LIVb"       // à remplacer
+      )
+      .then(
+        (response) => {
+          alert("Message envoyé avec succès !");
+          setFormData({ nom: "", email: "", message: "" });
+          setRating(0);
+        },
+        (error) => {
+          console.error("Erreur :", error);
+          alert("Une erreur s’est produite. Réessayez.");
+        }
+      );
+  }
+};
+
 
   return (
     <motion.div
