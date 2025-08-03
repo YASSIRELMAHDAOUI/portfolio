@@ -1,4 +1,5 @@
 // App.jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from 'react';
 import Home from './components/home';
 import Nav from './components/nav';
@@ -8,12 +9,18 @@ import Foter from './components/foter';
 
 function App() {
   return (
-    <div className="bg-black min-h-screen text-white">
-      <Nav />
-      <Home />
-      <Project />
-      <Contact />
-      <Foter/>
+   <div className="bg-black min-h-screen text-white">
+      <Router>
+        <Nav />
+        <div className="pt-16 pb-20"> {/* Pour espace entre nav et footer */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Project />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </div>
+        <Foter />
+      </Router>
     </div>
   );
 }
