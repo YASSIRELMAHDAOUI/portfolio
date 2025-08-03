@@ -2,7 +2,14 @@ import React from "react";
 import Slider from "react-slick";
 import yassirImg from "../assets/photo.jpg";
 import { AiFillInstagram } from "react-icons/ai";
-import { FaFacebookSquare, FaWhatsappSquare, FaReact, FaLaravel, FaJs, FaPhp } from "react-icons/fa";
+import {
+  FaFacebookSquare,
+  FaWhatsappSquare,
+  FaReact,
+  FaLaravel,
+  FaJs,
+  FaPhp,
+} from "react-icons/fa";
 import { SiMysql } from "react-icons/si";
 import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
@@ -11,121 +18,107 @@ import "slick-carousel/slick/slick-theme.css";
 const Home = () => {
   const settings = {
     infinite: true,
-    speed: 5000,          // Durée du défilement (ms)
-    slidesToShow: 6,       // Nombre d’icônes visibles
+    speed: 5000,
+    slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 0,      // Important pour défilement continu
-    cssEase: "linear",     // Pour un défilement fluide et constant
+    autoplaySpeed: 0,
+    cssEase: "linear",
     pauseOnHover: false,
     arrows: false,
     swipe: false,
     responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 5,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
+      { breakpoint: 1024, settings: { slidesToShow: 5 } },
+      { breakpoint: 768, settings: { slidesToShow: 4 } },
+      { breakpoint: 480, settings: { slidesToShow: 3 } },
     ],
   };
 
-  const icons = [<FaLaravel />,<SiMysql />, <FaReact />, <FaJs />, <FaPhp />];
+  const icons = [<FaLaravel />, <SiMysql />, <FaReact />, <FaJs />, <FaPhp />];
   const repeatedIcons = [...Array(10)].flatMap(() => icons);
 
   return (
     <>
-      {/* Barre de technologies défilantes */}
-      <div id="home" className="overflow-hidden w-full py-8 bg-black text-pink-500 text-6xl">
+      {/* Défilement d’icônes technos */}
+      <div className="overflow-hidden w-full py-6 bg-gradient-to-r from-black via-gray-900 to-black text-pink-500 text-6xl shadow-inner">
         <Slider {...settings}>
           {repeatedIcons.map((icon, index) => (
-            <div key={index} className="flex justify-center ">
+            <div key={index} className="flex justify-center hover:scale-125 transition-transform duration-300">
               {icon}
             </div>
           ))}
         </Slider>
       </div>
 
+      {/* Présentation */}
       <motion.div
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
+        className="bg-gradient-to-b from-black via-gray-900 to-black text-white py-20 px-6 text-center"
       >
-        <h1 className="text-center text-3xl md:text-5xl my-20 font-bold">
-          Développeur Web Full Stack <br />
-          Bonjour, je suis{" "}
-          <strong className="text-pink-500">Yassir Elmahdaoui</strong>, originaire du Maroc.
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-snug">
+          Bonjour, je suis <br />
+          <span className="text-pink-500">Yassir Elmahdaoui</span>
         </h1>
+        <p className="text-lg md:text-2xl max-w-3xl mx-auto">
+          Développeur Web Full Stack passionné par le code moderne, basé au Maroc. J’aime construire des interfaces élégantes et des backends robustes.
+        </p>
+        <a
+          href="#"
+          className="inline-block mt-8 px-8 py-3 text-lg font-semibold bg-pink-600 hover:bg-pink-700 text-white rounded-full shadow-lg transition duration-300"
+        >
+          Voir mon Portfolio
+        </a>
       </motion.div>
 
-      {/* À propos de moi */}
+      {/* Section À propos */}
       <motion.div
         initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
-        className="flex flex-col md:flex-row items-center gap-12 p-8 bg-black text-white rounded-2xl shadow-lg max-w-5xl mx-auto"
+        className="flex flex-col md:flex-row items-center gap-12 px-8 py-16 bg-black text-white rounded-2xl max-w-6xl mx-auto"
       >
-        {/* Image avec effet */}
-        <div className="relative group w-64 h-64 flex-shrink-0">
+        {/* Photo */}
+        <div className="relative group w-64 h-64">
           <img
             src={yassirImg}
             alt="Yassir"
-            className="w-full h-full object-cover rounded-3xl shadow-lg relative z-10 transition-transform duration-300 group-hover:scale-105"
+            className="rounded-full border-4 border-pink-500 shadow-xl w-full h-full object-cover transform group-hover:scale-105 transition duration-300"
           />
-          <div className="absolute inset-0 rounded-3xl bg-pink-500 blur-2xl opacity-60 transition-opacity duration-300 z-0 mix-blend-screen"></div>
+          <div className="absolute inset-0 rounded-full bg-pink-500 blur-3xl opacity-30 z-0"></div>
         </div>
 
-        {/* Texte à propos */}
+        {/* Texte */}
         <div>
-          <h2 className="text-xl md:text-3xl font-bold mb-4">À propos de moi</h2>
+          <h2 className="text-2xl md:text-4xl font-bold mb-4">À propos de moi</h2>
           <p className="text-lg leading-relaxed max-w-xl">
-            Je m’appelle Yassir El Mahdaoui, développeur full stack passionné par le
-            développement web et les technologies modernes. Fort d’une solide expérience
-            en front-end avec React.js et en back-end avec Laravel, je m’efforce
-            de créer des applications performantes, élégantes et faciles à utiliser.
-            <br /><br />
-            Enthousiaste et motivé, je suis prêt à contribuer activement à des projets
-            ambitieux et à évoluer dans un environnement dynamique.
+            Je m'appelle Yassir El Mahdaoui, développeur full stack motivé et créatif. J’utilise React.js pour le front et Laravel pour le back-end. Toujours curieux et à l’écoute, je m’adapte rapidement pour créer des solutions puissantes, modernes et fonctionnelles.
           </p>
 
           {/* Réseaux sociaux */}
-          <div className="flex gap-6 mt-6 text-4xl justify-center text-pink-500">
+          <div className="flex gap-6 mt-6 text-4xl text-pink-500 justify-start">
             <a
-              className="hover:scale-110 transition-transform duration-300"
               href="https://www.instagram.com/le.enemy_/"
               target="_blank"
               rel="noopener noreferrer"
+              className="hover:scale-125 transition-transform"
             >
               <AiFillInstagram />
             </a>
             <a
-              className="hover:scale-110 transition-transform duration-300"
-              href=""
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
+              className="hover:scale-125 transition-transform"
             >
               <FaFacebookSquare />
             </a>
             <a
-              className="hover:scale-110 transition-transform duration-300"
               href="https://wa.me/0601574351"
               target="_blank"
               rel="noopener noreferrer"
+              className="hover:scale-125 transition-transform"
             >
               <FaWhatsappSquare />
             </a>
