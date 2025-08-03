@@ -10,7 +10,7 @@ const Project = () => {
       className="md:p-8 p-4 w-full md:max-w-5xl mx-auto text-white my-18"
       id="project"
     >
-      {/* Nouveau titre stylisé */}
+      
       <h1 className="text-4xl font-extrabold mb-6 relative flex justify-center">
   <span className="block text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-fuchsia-500 relative">
     Projects
@@ -25,7 +25,6 @@ const Project = () => {
         <span className="text-pink-400 font-semibold">Laravel</span>.  
         Chaque projet reflète ma passion pour les interfaces soignées, une UX intuitive, et un code structuré.
       </p>
-
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
         {/* Carte 1 - Voiture-eCommerce */}
         <div className="relative group w-80 h-70 rounded-xl overflow-hidden shadow-lg cursor-pointer bg-gray-700 hover:scale-105 transition-transform duration-500">
