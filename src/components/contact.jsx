@@ -71,11 +71,14 @@ const Contact = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="max-w-5xl mx-auto p-6"
+      className="max-w-5xl mx-auto my-18 p-6"
     >
-      <h2 className="text-3xl font-semibold text-center mb-8 text-pink-500">
-        Contactez-moi
-      </h2>
+      <h1 className="text-4xl font-extrabold mb-6 relative flex justify-center">
+  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-fuchsia-500 relative">
+    Contactez-moi
+    <span className="absolute left-1/2 -bottom-2 transform -translate-x-1/2 w-24 h-1 bg-pink-500 rounded-full" />
+  </span>
+</h1><br/><br/>
 
       <div className="flex flex-col md:flex-row gap-10">
         {/* Fiche de contact */}

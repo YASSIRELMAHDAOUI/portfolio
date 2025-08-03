@@ -1,7 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import yasserimg from "../assets/yasssir.jpeg";
 
 const Nav = () => {
+  const location = useLocation();
+
+  const isActive = (path) => location.pathname === path;
+
   return (
     <nav className="bg-black text-white font-bold py-4 px-8 fixed top-0 left-0 w-full z-50 shadow-md">
       <div className="flex items-center justify-between">
@@ -17,33 +21,29 @@ const Nav = () => {
 
         {/* Liens de navigation */}
         <ul className="flex gap-8">
-          <li className="relative group">
-            <Link
-              to="/"
-              className="text-sm md:text-lg transition-transform duration-200 group-hover:scale-105 group-hover:text-pink-500"
-            >
-              Home
-              <span className="block h-[2px] bg-pink-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left mt-1"></span>
-            </Link>
-          </li>
-          <li className="relative group">
-            <Link
-              to="/projects"
-              className="text-sm md:text-lg transition-transform duration-200 group-hover:scale-105 group-hover:text-pink-500"
-            >
-              Project
-              <span className="block h-[2px] bg-pink-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left mt-1"></span>
-            </Link>
-          </li>
-          <li className="relative group">
-            <Link
-              to="/contact"
-              className="text-sm md:text-lg transition-transform duration-200 group-hover:scale-105 group-hover:text-pink-500"
-            >
-              Contact
-              <span className="block h-[2px] bg-pink-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left mt-1"></span>
-            </Link>
-          </li>
+          {[
+            { name: "Home", path: "/" },
+            { name: "Project", path: "/projects" },
+            { name: "Contact", path: "/contact" },
+          ].map((link) => (
+            <li key={link.path} className="relative group">
+              <Link
+                to={link.path}
+                className={`text-sm md:text-lg transition-transform duration-200 group-hover:scale-105 ${
+                  isActive(link.path) ? "text-pink-500" : ""
+                }`}
+              >
+                {link.name}
+                <span
+                  className={`block h-[2px] bg-pink-500 mt-1 transition-transform duration-300 origin-left ${
+                    isActive(link.path)
+                      ? "scale-x-100"
+                      : "scale-x-0 group-hover:scale-x-100"
+                  }`}
+                ></span>
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>
