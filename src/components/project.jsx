@@ -69,7 +69,7 @@ const Project = () => {
             </div>
             <div className="flex justify-center mt-4">
               <a
-                href="https://github.com/SAAD-ELGHABA/gestion_commande"
+                href="https://github.com/YASSIRELMAHDAOUI/gestion_commande"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative w-14 h-14 flex justify-center items-center"
@@ -96,7 +96,7 @@ const Project = () => {
             </div>
             <div className="flex justify-center mt-4">
               <a
-                href="https://github.com/SAAD-ELGHABA/meteo"
+                href="https://github.com/YASSIRELMAHDAOUI/meteo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative w-14 h-14 flex justify-center items-center"
