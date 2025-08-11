@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import yassirImg from "../assets/photo.jpg";
+import yassirImg from "../assets/photoo est.jpg";
 import { AiFillInstagram } from "react-icons/ai";
 import {
   FaFacebookSquare,
@@ -86,7 +86,7 @@ const Home = () => {
             alt="Yassir"
             className="rounded-full border-4 border-pink-500 shadow-xl w-full h-full object-cover transform group-hover:scale-105 transition duration-300"
           />
-          <div className="absolute inset-0 rounded-full bg-pink-500 blur-3xl opacity-30 z-0"></div>
+          
         </div>
 
         {/* Texte */}
