@@ -65,10 +65,12 @@ const Home = () => {
           Développeur Web Full Stack passionné par le code moderne, basé au Maroc. J’aime construire des interfaces élégantes et des backends robustes.
         </p>
         <a
-          href="#"
+          href="/MON CV.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-block mt-8 px-8 py-3 text-lg font-semibold bg-pink-600 hover:bg-pink-700 text-white rounded-full shadow-lg transition duration-300"
         >
-          Voir mon Portfolio
+          Voir mon CV
         </a>
       </motion.div>
 
@@ -77,7 +79,7 @@ const Home = () => {
         initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
-        className="flex flex-col md:flex-row items-center gap-12 px-8 py-16 bg-black text-white rounded-2xl max-w-6xl mx-auto"
+        className="flex flex-col md:flex-row items-center gap-12 px-8 py-16  bg-black text-white rounded-2xl max-w-6xl mx-auto "
       >
         {/* Photo */}
         <div className="relative group w-64 h-64">
