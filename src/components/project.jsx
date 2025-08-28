@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa6";
+import meteo from "../assets/meteo_photo.png"
+import learn from "../assets/learn photo.png"
+import voiture from "../assets/voiture photo.png"
+import gestion from "../assets/gestion photo.png"
 
 const Project = () => {
   return (
@@ -27,10 +31,11 @@ const Project = () => {
       </p>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
         {/* Carte 1 - Voiture-eCommerce */}
-        <div className="relative group w-80 h-70 rounded-xl overflow-hidden shadow-lg cursor-pointer bg-gray-700 hover:scale-105 transition-transform duration-500">
+        <div className="relative group w-80 h-90 rounded-xl overflow-hidden shadow-lg cursor-pointer bg-gray-700 hover:scale-105 transition-transform duration-500">
           <div className="absolute inset-0 bg-gray-800/60 backdrop-blur-md opacity-0 group-hover:opacity-100 transition duration-500 z-0"></div>
           <div className="relative z-10 p-6 text-white flex flex-col justify-between h-full">
             <div>
+              <img src={voiture} alt="voiture" />
               <h2 className="relative text-xl font-bold group cursor-pointer">
                 <span className="absolute top-0 left-0 w-full h-1 bg-pink-500 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                 Voiture-eCommerce
@@ -54,10 +59,11 @@ const Project = () => {
         </div>
 
         {/* Carte 2 - Gestion-commande */}
-        <div className="relative group w-80 h-70 rounded-xl overflow-hidden shadow-lg cursor-pointer bg-gray-700 hover:scale-105 transition-transform duration-500">
+        <div className="relative group w-80 h-90 rounded-xl overflow-hidden shadow-lg cursor-pointer bg-gray-700 hover:scale-105 transition-transform duration-500">
           <div className="absolute inset-0 bg-gray-800/60 backdrop-blur-md opacity-0 group-hover:opacity-100 transition duration-500 z-0"></div>
           <div className="relative z-10 p-6 text-white flex flex-col justify-between h-full">
             <div>
+              <img src={gestion} alt="gestion" />
               <h2 className="relative text-xl font-bold group cursor-pointer">
                 <span className="absolute top-0 left-0 w-full h-1 bg-pink-500 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                 Gestion-commande
@@ -81,10 +87,12 @@ const Project = () => {
         </div>
 
         {/* Carte 3 - projet-meteo */}
-        <div className="relative group w-80 h-70 rounded-xl overflow-hidden shadow-lg cursor-pointer bg-gray-700 hover:scale-105 transition-transform duration-500">
+        <div className="relative group w-80 h-90 rounded-xl overflow-hidden shadow-lg cursor-pointer bg-gray-700 hover:scale-105 transition-transform duration-500">
           <div className="absolute inset-0 bg-gray-800/60 backdrop-blur-md opacity-0 group-hover:opacity-100 transition duration-500 z-0"></div>
           <div className="relative z-10 p-6 text-white flex flex-col justify-between h-full">
             <div>
+               <img src={meteo} alt="projet meteo" className="rounded-lg" />
+
               <h2 className="relative text-xl font-bold group cursor-pointer">
                 <span className="absolute top-0 left-0 w-full h-1 bg-pink-500 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                 projet-meteo
@@ -108,10 +116,11 @@ const Project = () => {
         </div>
 
         {/* Carte 4 - Learn Code Lab */}
-        <div className="relative group w-80 h-70 rounded-xl overflow-hidden shadow-lg cursor-pointer bg-gray-700 hover:scale-105 transition-transform duration-500">
+        <div className="relative group w-80 h-97 rounded-xl overflow-hidden shadow-lg cursor-pointer bg-gray-700 hover:scale-105 transition-transform duration-500">
           <div className="absolute inset-0 bg-gray-800/60 backdrop-blur-md opacity-0 group-hover:opacity-100 transition duration-500 z-0"></div>
           <div className="relative z-10 p-6 text-white flex flex-col justify-between h-full">
             <div>
+              <img src={learn} alt="learn" />
               <h2 className="relative text-xl font-bold group cursor-pointer">
                 <span className="absolute top-0 left-0 w-full h-1 bg-pink-500 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                 Learn-Code-Lab
