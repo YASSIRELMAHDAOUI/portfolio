@@ -1,148 +1,105 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { FaGithub } from "react-icons/fa6";
-import meteo from "../assets/meteo_photo.png"
-import learn from "../assets/learn photo.png"
-import voiture from "../assets/voiture photo.png"
-import gestion from "../assets/gestion photo.png"
+import meteo from "../assets/meteo_photo.png";
+import learn from "../assets/learn photo.png";
+import voiture from "../assets/voiture photo.png";
+import gestion from "../assets/gestion photo.png";
+
+const projects = [
+  {
+    title: "Voiture-eCommerce",
+    img: voiture,
+    desc: "Plateforme innovante pour la vente de voitures neuves et d'occasion.",
+    link: "https://github.com/YASSIRELMAHDAOUI/projet_front_icommerce_voiture-",
+  },
+  {
+    title: "Gestion-commande",
+    img: gestion,
+    desc: "Application pour simplifier et optimiser la gestion des commandes.",
+    link: "https://github.com/YASSIRELMAHDAOUI/gestion_commande",
+  },
+  {
+    title: "Projet Météo",
+    img: meteo,
+    desc: "Interface moderne pour accéder aux prévisions météo précises.",
+    link: "https://github.com/YASSIRELMAHDAOUI/meteo",
+  },
+  {
+    title: "Learn Code Lab",
+    img: learn,
+    desc: "Plateforme interactive pour apprendre le développement web.",
+    link: "https://github.com/SAAD-ELGHABA/LearnCodeLab",
+  },
+];
 
 const Project = () => {
+  const [selectedImg, setSelectedImg] = useState(null);
+
   return (
     <motion.div
-      initial={{ opacity: 0, x: -40 }}
-      animate={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
-      className="md:p-8 p-4 w-full md:max-w-5xl mx-auto text-white my-18"
-      id="project"
+      className="md:p-8 p-4 w-full md:max-w-6xl mx-auto text-white my-20"
     >
-      
-      <h1 className="text-4xl font-extrabold mb-6 relative flex justify-center">
-  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-fuchsia-500 relative">
-    Projects
-    <span className="absolute left-1/2 -bottom-2 transform -translate-x-1/2 w-24 h-1 bg-pink-500 rounded-full" />
-  </span>
-</h1>
-
-      {/* Nouveau paragraphe introductif */}
-      <p className="text-lg text-center text-gray-300 leading-relaxed max-w-3xl mx-auto mb-10">
-        En tant que développeur full stack, j’ai conçu des applications web modernes avec&nbsp;
-        <span className="text-pink-400 font-semibold">React.js</span> &nbsp;et&nbsp;
-        <span className="text-pink-400 font-semibold">Laravel</span>.  
-        Chaque projet reflète ma passion pour les interfaces soignées, une UX intuitive, et un code structuré.
+      <h1 className="text-4xl font-extrabold mb-6 text-center bg-gradient-to-r from-pink-400 to-fuchsia-500 text-transparent bg-clip-text">
+        My Projects
+      </h1>
+      <p className="text-lg text-center text-gray-300 leading-relaxed max-w-3xl mx-auto mb-12">
+        Applications modernes avec <span className="text-pink-400 font-semibold">React.js</span> &
+        <span className="text-pink-400 font-semibold"> Laravel</span>.
       </p>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-        {/* Carte 1 - Voiture-eCommerce */}
-        <div className="relative group w-80 h-90 rounded-xl overflow-hidden shadow-lg cursor-pointer bg-gray-700 hover:scale-105 transition-transform duration-500">
-          <div className="absolute inset-0 bg-gray-800/60 backdrop-blur-md opacity-0 group-hover:opacity-100 transition duration-500 z-0"></div>
-          <div className="relative z-10 p-6 text-white flex flex-col justify-between h-full">
-            <div>
-              <img src={voiture} alt="voiture" />
-              <h2 className="relative text-xl font-bold group cursor-pointer">
-                <span className="absolute top-0 left-0 w-full h-1 bg-pink-500 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-                Voiture-eCommerce
-              </h2>
-              <p className="mt-2 text-sm">
-                Découvrez une plateforme innovante qui révolutionne la vente en ligne de voitures neuves et d’occasion. Parcourez facilement un catalogue complet et trouvez votre véhicule idéal en quelques clics.
-              </p>
-            </div>
-            <div className="flex justify-center mt-4">
+
+      {/* Grid */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
+        {projects.map((proj, i) => (
+          <motion.div
+            key={i}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 200 }}
+            className="group w-80 h-[420px] rounded-2xl bg-gray-800/60 backdrop-blur-md p-5 shadow-xl relative overflow-hidden"
+          >
+            <img
+              src={proj.img}
+              alt={proj.title}
+              className="rounded-lg w-full h-40 object-cover cursor-pointer"
+              onClick={() => setSelectedImg(proj.img)}
+            />
+            <h2 className="text-xl font-bold mt-4">{proj.title}</h2>
+            <p className="text-sm mt-2 text-gray-300">{proj.desc}</p>
+            <div className="flex justify-center mt-5">
               <a
-                href="https://github.com/YASSIRELMAHDAOUI/projet_front_icommerce_voiture-"
+                href={proj.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative w-14 h-14 flex justify-center items-center"
               >
-                <div className="absolute inset-0 bg-pink-500 blur-md opacity-60 rounded-full z-0"></div>
+                <div className="absolute inset-0 bg-pink-500 blur-md opacity-60 rounded-full"></div>
                 <FaGithub className="text-2xl z-10 text-white hover:scale-125 transition-transform duration-300 cursor-pointer" />
               </a>
             </div>
-          </div>
-        </div>
-
-        {/* Carte 2 - Gestion-commande */}
-        <div className="relative group w-80 h-90 rounded-xl overflow-hidden shadow-lg cursor-pointer bg-gray-700 hover:scale-105 transition-transform duration-500">
-          <div className="absolute inset-0 bg-gray-800/60 backdrop-blur-md opacity-0 group-hover:opacity-100 transition duration-500 z-0"></div>
-          <div className="relative z-10 p-6 text-white flex flex-col justify-between h-full">
-            <div>
-              <img src={gestion} alt="gestion" />
-              <h2 className="relative text-xl font-bold group cursor-pointer">
-                <span className="absolute top-0 left-0 w-full h-1 bg-pink-500 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-                Gestion-commande
-              </h2>
-              <p className="mt-2 text-sm">
-                Simplifiez et optimisez vos processus d’achats avec une application conçue pour gérer efficacement toutes vos commandes, garantissant rapidité et précision au quotidien.
-              </p>
-            </div>
-            <div className="flex justify-center mt-4">
-              <a
-                href="https://github.com/YASSIRELMAHDAOUI/gestion_commande"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative w-14 h-14 flex justify-center items-center"
-              >
-                <div className="absolute inset-0 bg-pink-500 blur-md opacity-60 rounded-full z-0"></div>
-                <FaGithub className="text-2xl z-10 text-white hover:scale-125 transition-transform duration-300 cursor-pointer" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Carte 3 - projet-meteo */}
-        <div className="relative group w-80 h-90 rounded-xl overflow-hidden shadow-lg cursor-pointer bg-gray-700 hover:scale-105 transition-transform duration-500">
-          <div className="absolute inset-0 bg-gray-800/60 backdrop-blur-md opacity-0 group-hover:opacity-100 transition duration-500 z-0"></div>
-          <div className="relative z-10 p-6 text-white flex flex-col justify-between h-full">
-            <div>
-               <img src={meteo} alt="projet meteo" className="rounded-lg" />
-
-              <h2 className="relative text-xl font-bold group cursor-pointer">
-                <span className="absolute top-0 left-0 w-full h-1 bg-pink-500 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-                projet-meteo
-              </h2>
-              <p className="mt-2 text-sm">
-                Accédez instantanément aux prévisions météo précises pour votre ville préférée grâce à une interface claire et moderne, idéale pour planifier votre journée en toute sérénité.
-              </p>
-            </div>
-            <div className="flex justify-center mt-4">
-              <a
-                href="https://github.com/YASSIRELMAHDAOUI/meteo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative w-14 h-14 flex justify-center items-center"
-              >
-                <div className="absolute inset-0 bg-pink-500 blur-md opacity-60 rounded-full z-0"></div>
-                <FaGithub className="text-2xl z-10 text-white hover:scale-125 transition-transform duration-300 cursor-pointer" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Carte 4 - Learn Code Lab */}
-        <div className="relative group w-80 h-97 rounded-xl overflow-hidden shadow-lg cursor-pointer bg-gray-700 hover:scale-105 transition-transform duration-500">
-          <div className="absolute inset-0 bg-gray-800/60 backdrop-blur-md opacity-0 group-hover:opacity-100 transition duration-500 z-0"></div>
-          <div className="relative z-10 p-6 text-white flex flex-col justify-between h-full">
-            <div>
-              <img src={learn} alt="learn" />
-              <h2 className="relative text-xl font-bold group cursor-pointer">
-                <span className="absolute top-0 left-0 w-full h-1 bg-pink-500 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-                Learn-Code-Lab
-              </h2>
-              <p className="mt-2 text-sm">
-                Learn Code Lab est une plateforme moderne conçue avec React, Laravel et Tailwind CSS pour apprendre le développement web de manière interactive. Elle offre une expérience fluide, responsive et riche en fonctionnalités pour faciliter l’apprentissage du code.
-              </p>
-            </div>
-            <div className="flex justify-center mt-4">
-              <a
-                href="https://github.com/SAAD-ELGHABA/LearnCodeLab"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative w-14 h-14 flex justify-center items-center"
-              >
-                <div className="absolute inset-0 bg-pink-500 blur-md opacity-60 rounded-full z-0"></div>
-                <FaGithub className="text-2xl z-10 text-white hover:scale-125 transition-transform duration-300 cursor-pointer" />
-              </a>
-            </div>
-          </div>
-        </div>
+          </motion.div>
+        ))}
       </div>
+
+      {/* Modal Image Zoom */}
+      {selectedImg && (
+        <motion.div
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center z-50"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          onClick={() => setSelectedImg(null)}
+        >
+          <motion.img
+            src={selectedImg}
+            className="max-w-[90%] max-h-[80%] rounded-xl shadow-2xl"
+            initial={{ scale: 0.5 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", stiffness: 120 }}
+          />
+        </motion.div>
+      )}
     </motion.div>
   );
 };
