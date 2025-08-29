@@ -5,6 +5,7 @@ import meteo from "../assets/meteo_photo.png";
 import learn from "../assets/learn photo.png";
 import voiture from "../assets/voiture photo.png";
 import gestion from "../assets/gestion photo.png";
+import calculatrice from "../assets/calcula.png"
 
 const projects = [
   {
@@ -31,6 +32,13 @@ const projects = [
     desc: "Plateforme interactive pour apprendre le développement web.",
     link: "https://github.com/SAAD-ELGHABA/LearnCodeLab",
   },
+  {
+    title: "calculatrice",
+    img: calculatrice,
+    desc: "Plateforme qui design une calculatrice",
+    link: "https://github.com/YASSIRELMAHDAOUI/calculatrice",
+  }
+
 ];
 
 const Project = () => {
