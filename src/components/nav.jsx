@@ -1,15 +1,26 @@
 import { Link, useLocation } from "react-router-dom";
 import yasserimg from "../assets/yasssir.jpeg";
+import { IoMenu, IoClose } from "react-icons/io5";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Nav = () => {
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const isActive = (path) => location.pathname === path;
+
+  // Animation du menu plein écran
+  const menuVariants = {
+    hidden: { x: "-100%" },
+    visible: { x: 0 },
+    exit: { x: "-100%" }
+  };
 
   return (
     <nav className="bg-black text-white font-bold py-4 px-8 fixed top-0 left-0 w-full z-50 shadow-md">
       <div className="flex items-center justify-between">
-        {/* Avatar + effet flou rose */}
+        {/* Avatar */}
         <div className="relative group w-10 h-10 flex-shrink-0">
           <img
             src={yasserimg}
@@ -19,8 +30,8 @@ const Nav = () => {
           <div className="absolute inset-0 rounded-3xl bg-pink-500 blur-md opacity-60 z-0"></div>
         </div>
 
-        {/* Liens de navigation */}
-        <ul className="flex gap-8">
+        {/* Liens Desktop */}
+        <ul className="hidden md:flex gap-8">
           {[
             { name: "Home", path: "/" },
             { name: "Project", path: "/projects" },
@@ -45,7 +56,53 @@ const Nav = () => {
             </li>
           ))}
         </ul>
+
+        {/* Bouton Menu Mobile */}
+        <button
+          className="md:hidden text-3xl"
+          onClick={() => setMenuOpen(true)}
+        >
+          <IoMenu />
+        </button>
       </div>
+
+      {/* Menu Mobile Plein Écran avec Motion */}
+      {menuOpen && (
+        <motion.div
+          className="fixed top-0 left-0 w-full h-full bg-black flex flex-col justify-center items-center gap-8 text-2xl z-50"
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          variants={menuVariants}
+          transition={{ type: "tween", duration: 0.4 }}
+        >
+          {/* Bouton Fermer */}
+          <button
+            className="absolute top-6 right-6 text-4xl"
+            onClick={() => setMenuOpen(false)}
+          >
+            <IoClose />
+          </button>
+
+          {/* Liens Menu Mobile */}
+          {[
+            { name: "Home", path: "/" },
+            { name: "Project", path: "/projects" },
+            { name: "Contact", path: "/contact" },
+          ].map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              onClick={() => setMenuOpen(false)}
+              className={`transition-colors duration-200 ${
+                isActive(link.path) ? "text-pink-500" : ""
+              } hover:scale-110`}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </motion.div>
+      )}
     </nav>
   );
 };
