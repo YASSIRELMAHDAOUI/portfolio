@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import yassirImg from "../assets/photoo est.jpg";
 import { AiFillInstagram } from "react-icons/ai";
+import { RiTailwindCssFill } from "react-icons/ri";
 import {
   FaFacebookSquare,
   FaWhatsappSquare,
@@ -14,7 +15,10 @@ import { SiMysql } from "react-icons/si";
 import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { FaHtml5 } from "react-icons/fa";
+import { FaCss3Alt } from "react-icons/fa";
+import { FaBootstrap } from "react-icons/fa";
+import { SiMongodb } from "react-icons/si";
 const Home = () => {
   const settings = {
     infinite: true,
@@ -34,7 +38,7 @@ const Home = () => {
     ],
   };
 
-  const icons = [<FaLaravel />, <SiMysql />, <FaReact />, <FaJs />, <FaPhp />];
+  const icons = [<FaLaravel />,<RiTailwindCssFill />,<SiMongodb />,<FaBootstrap />,<FaCss3Alt />, <FaHtml5 />,<SiMysql />, <FaReact />, <FaJs />, <FaPhp />];
   const repeatedIcons = [...Array(10)].flatMap(() => icons);
 
   return (
