@@ -9,10 +9,10 @@ import calculatrice from "../assets/calcula.png"
 
 const projects = [
   {
-    title: "Voiture-eCommerce",
+    title: "Voiture-platforme",
     img: voiture,
-    desc: "Plateforme innovante pour la vente de voitures neuves et d'occasion.",
-    link: "https://github.com/YASSIRELMAHDAOUI/projet_front_icommerce_voiture-",
+    desc: "Plateforme innovante pour gestion des voitures neuves et d'occasion.",
+    link: "https://github.com/YASSIRELMAHDAOUI/site-voiture",
   },
   {
     title: "Gestion-commande",
