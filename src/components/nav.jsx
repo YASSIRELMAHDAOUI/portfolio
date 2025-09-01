@@ -83,14 +83,14 @@ const Nav = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
-       <div className="relative group w-10 h-10 flex-shrink-0">
-          <img
-            src={yasserimg}
-            alt="Yassir"
-            className="w-10 h-10 rounded-3xl relative z-10 object-cover"
-          />
-          <div className="absolute inset-0 rounded-3xl bg-pink-500 blur-md opacity-60 z-0"></div>
-        </div>
+      <div className="relative group w-10 h-10 flex-shrink-0">
+        <img
+          src={yasserimg}
+          alt="Yassir"
+          className="w-10 h-10 rounded-3xl relative z-10 object-cover"
+        />
+        <div className="absolute inset-0 rounded-3xl bg-pink-500 blur-md opacity-60 z-0"></div>
+      </div>
     </motion.div>
 
     {/* Bouton Fermer */}
@@ -101,27 +101,50 @@ const Nav = () => {
       <IoClose />
     </button>
 
-    {/* Liens Menu Mobile */}
-    <div className="flex flex-col gap-8 text-2xl mt-8">
+    {/* Liens Menu Mobile avec animation cascade */}
+    <motion.ul
+      className="flex flex-col gap-8 text-2xl mt-12"
+      initial="hidden"
+      animate="visible"
+      variants={{
+        visible: {
+          transition: { staggerChildren: 0.40 } // un lien après l'autre
+        }
+      }}
+    >
       {[
         { name: "Home", path: "/" },
         { name: "Projects", path: "/projects" },
         { name: "Contact", path: "/contact" },
       ].map((link) => (
-        <Link
+        <motion.li
           key={link.path}
-          to={link.path}
-          onClick={() => setMenuOpen(false)}
-          className={`transition-colors duration-200 ${
-            isActive(link.path) ? "text-pink-500" : ""
-          } hover:scale-110`}
+          variants={{
+            hidden: { opacity: 0, x: -30 },
+            visible: { opacity: 1, x: 0 }
+          }}
         >
-          {link.name}
-        </Link>
+          <Link
+            to={link.path}
+            onClick={() => setMenuOpen(false)}
+            className={`relative transition-colors duration-200 ${
+              isActive(link.path) ? "text-pink-500" : "hover:text-pink-500"
+            }`}
+          >
+            {link.name}
+            {/* Ligne rose sous le lien */}
+            <span
+              className={`block h-[2px] bg-pink-500 mt-1 transition-transform duration-300 origin-left ${
+                isActive(link.path) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+              }`}
+            ></span>
+          </Link>
+        </motion.li>
       ))}
-    </div>
+    </motion.ul>
   </motion.div>
 )}
+
 
     </nav>
   );
