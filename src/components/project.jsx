@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FaGithub } from "react-icons/fa6";
 import meteo from "../assets/meteo_photo.png";
 import learn from "../assets/learn photo.png";
-import voiture from "../assets/voiture photo.png";
+import voiture from "../assets/locationnnn.png";
 import gestion from "../assets/gestion photo.png";
 import calculatrice from "../assets/calcula.png"
 
