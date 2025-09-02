@@ -20,7 +20,9 @@ const Nav = () => {
     <nav className="bg-black text-white font-bold py-4 px-8 fixed top-0 left-0 w-full z-50 shadow-md">
       <div className="flex items-center justify-between">
         {/* Avatar */}
-        <div className="relative group w-10 h-10 flex-shrink-0">
+<Link to="/">
+        <div className="relative group w-10 h-10 flex-shrink-0 transform hover:scale-120 transition duration-300">
+          
           <img
             src={yasserimg}
             alt="Yassir"
@@ -28,7 +30,7 @@ const Nav = () => {
           />
           <div className="absolute inset-0 rounded-full animate-pulse bg-pink-500 blur-md opacity-50"></div>
         </div>
-
+        </Link>
         {/* Liens Desktop */}
         <ul className="hidden md:flex gap-8">
           {[
