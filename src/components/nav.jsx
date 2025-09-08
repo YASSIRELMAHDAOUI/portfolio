@@ -36,6 +36,7 @@ const Nav = () => {
           {[
             { name: "Home", path: "/" },
             { name: "Projects", path: "/projects" },
+            { name: "Competence", path: "/Competence" },
             { name: "Contact", path: "/contact" },
           ].map((link) => (
             <li key={link.path} className="relative group">
@@ -118,6 +119,7 @@ const Nav = () => {
             {[
               { name: "Home", path: "/" },
               { name: "Projects", path: "/projects" },
+              { name: "Competence", path: "/Competence" },
               { name: "Contact", path: "/contact" },
             ].map((link) => (
               <motion.li
