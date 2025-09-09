@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import { FaGithub } from "react-icons/fa";
+import { SiPostman } from "react-icons/si";
+import { VscVscode } from "react-icons/vsc";
 import {
   FaReact,
   FaLaravel,
@@ -12,7 +14,8 @@ import {
 } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { SiMysql, SiMongodb } from "react-icons/si";
-
+import { FaFigma } from "react-icons/fa";
+import { FaDocker } from "react-icons/fa";
 function Competence() {
   const sections = [
     {
@@ -38,6 +41,16 @@ function Competence() {
       items: [
         { icon: <SiMysql />, name: "MySQL" },
         { icon: <SiMongodb />, name: "MongoDB" },
+      ],
+    },
+    {
+      title: "Technologies et outils",
+      items: [
+        { icon: <FaGithub />, name: "GitHub" },
+        { icon: <SiPostman />, name: "Postman" },
+        { icon: <VscVscode />, name: "Vscode" },
+        { icon: <FaFigma />, name: "Figma" },
+        { icon: <FaDocker />, name: "Docker" },
       ],
     },
   ];
