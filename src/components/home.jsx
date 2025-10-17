@@ -44,7 +44,7 @@ const Home = () => {
   return (
     <>
       {/* Défilement d’icônes technos */}
-      <div className="overflow-hidden w-full py-6 bg-gradient-to-r from-black via-gray-900 to-black text-pink-500 text-6xl shadow-inner">
+      <div className="overflow-hidden w-full py-6 bg-black text-pink-500 text-6xl shadow-inner">
         <Slider {...settings}>
           {repeatedIcons.map((icon, index) => (
             <div key={index} className="flex justify-center hover:scale-125 transition-transform duration-300">
@@ -59,9 +59,9 @@ const Home = () => {
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="bg-gradient-to-b from-black via-gray-900 to-black text-white py-20 px-6 text-center"
+        className="bg-black text-white py-20 px-6 text-center"
       >
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-snug">
+        <h1 className="text-xl md:text-6xl font-bold mb-6 leading-snug">
           Bonjour, je suis <br />
           <span className="text-pink-500">Yassir Elmahdaoui</span>
         </h1>

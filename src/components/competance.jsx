@@ -60,7 +60,7 @@ function Competence() {
 initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
-     className="bg-gradient-to-b from-black via-gray-900 to-black text-white py-16 px-6 flex flex-col items-center justify-center space-y-20 min-h-screen">
+     className="bg-black text-white py-16 px-6 flex flex-col items-center justify-center space-y-20 min-h-screen">
       {sections.map((section, idx) => (
         <div key={idx} className="text-center w-full max-w-6xl">
           {/* Titre */}
