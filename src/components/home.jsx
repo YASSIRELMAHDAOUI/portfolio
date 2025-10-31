@@ -83,7 +83,7 @@ const Home = () => {
         initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
-        className="flex flex-col md:flex-row items-center gap-12 px-8 py-16  bg-black text-white rounded-2xl max-w-6xl mx-auto "
+        className="flex justify-center flex-col md:flex-row items-center gap-12 px-8 py-16  bg-black text-white rounded-2xl max-w-6xl mx-auto "
       >
         {/* Photo */}
         <div className="relative group w-64 h-64">
@@ -103,7 +103,7 @@ const Home = () => {
           </p>
 
           {/* Réseaux sociaux */}
-          <div className="flex gap-6 mt-6 text-4xl text-pink-500 justify-start">
+          <div className="flex gap-6 mt-6 text-4xl text-pink-500 justify-center">
             <a
               href="https://www.instagram.com/le.enemy_/"
               target="_blank"
