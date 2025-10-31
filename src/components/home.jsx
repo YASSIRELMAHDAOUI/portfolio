@@ -43,6 +43,7 @@ const Home = () => {
 
   return (
     <>
+    
       {/* Défilement d’icônes technos */}
       <div className="overflow-hidden w-full py-6 bg-black text-pink-500 text-6xl shadow-inner">
         <Slider {...settings}>

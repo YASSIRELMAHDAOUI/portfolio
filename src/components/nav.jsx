@@ -18,6 +18,7 @@ const Nav = () => {
 
   return (
     <nav className="bg-black text-white font-bold py-4 px-8 fixed top-0 left-0 w-full z-50 shadow-md">
+      
       <div className="flex items-center justify-between">
         {/* Avatar */}
 <Link to="/">
@@ -33,6 +34,7 @@ const Nav = () => {
         </Link>
         {/* Liens Desktop */}
         <ul className="hidden md:flex gap-8">
+          
           {[
             { name: "Home", path: "/" },
             { name: "Projects", path: "/projects" },
@@ -151,8 +153,11 @@ const Nav = () => {
             ))}
           </motion.ul>
         </motion.div>
+        
       )}
+      
     </nav>
+    
   );
 };
 
