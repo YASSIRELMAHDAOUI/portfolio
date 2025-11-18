@@ -57,7 +57,7 @@ function Competence() {
 
   return (
     <motion.div
-initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
      className="bg-black text-white py-16 px-6 flex flex-col items-center justify-center space-y-20 min-h-screen">
@@ -69,7 +69,7 @@ initial={{ opacity: 0, y: 40 }}
           </h2>
 
           {/* Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 justify-items-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 justify-items-center">
             {section.items.map((tech, index) => (
               <div
                 key={index}

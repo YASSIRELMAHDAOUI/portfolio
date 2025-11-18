@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa6";
-import meteo from "../assets/meteo_photo.png";
 import learn from "../assets/learn photo.png";
 import voiture from "../assets/locationnnn.png";
 import gestion from "../assets/gestion photo.png";
-import calculatrice from "../assets/calcula.png";
+
 
 const projects = [
   {
@@ -39,7 +38,7 @@ const Project = () => {
       className="md:p-8 p-4 w-full md:max-w-6xl mx-auto text-white my-20"
     >
       {/* Titre */}
-      <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-center bg-gradient-to-r from-fuchsia-500 via-pink-400 to-purple-500 text-transparent bg-clip-text">
+      <h1 className="text-4xl md:text-5xl font-extrabold mb-7 text-center bg-gradient-to-r from-fuchsia-500 via-pink-400 to-purple-500 text-transparent bg-clip-text">
         My Projects
       </h1>
       <p className="text-lg text-center text-gray-300 leading-relaxed max-w-3xl mx-auto mb-12">
@@ -55,12 +54,12 @@ const Project = () => {
             key={i}
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 200 }}
-            className="group w-80 rounded-2xl bg-gray-800/50 backdrop-blur-lg p-5 shadow-lg hover:shadow-pink-500/20 transition-all duration-300"
+            className="group w-80 rounded-2xl bg-gray-800/50 backdrop-blur-lg h-100 shadow-lg hover:shadow-pink-500/20 transition-all duration-300"
           >
             <img
               src={proj.img}
               alt={proj.title}
-              className="rounded-xl w-full h-44 object-cover cursor-pointer shadow-md hover:shadow-pink-400/20 transition-all"
+              className="rounded-xl w-123 h-50 object-cover cursor-pointer shadow-md hover:shadow-pink-400/20 transition-all"
               onClick={() => setSelectedImg(proj.img)}
             />
             <h2 className="text-2xl font-bold mt-5">{proj.title}</h2>
